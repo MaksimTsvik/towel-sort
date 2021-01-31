@@ -8,19 +8,13 @@ module.exports = function towelSort(matrix) {
     return arr;
   }
 
-  arr = matrix.reduce(function (array, nextElem) {
+  arr = matrix.reduce(function (resultArr, nextElem, index) {
 
-    for (let i = 0; i < matrix.length; i++) {
-      let reverseElem = [];
-      if (i % 2 != 0) {
-        reverseElem = nextElem.reverse();
-        return array.concat(reverseElem);
-      } else {
-        return array.concat(reverseElem);
-      }
-
+    if (index % 2 != 0) {
+      return resultArr.concat(nextElem.reverse());
+    } else {
+      return resultArr.concat(nextElem);
     }
-
 
   });
 
